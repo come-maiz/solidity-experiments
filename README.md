@@ -24,3 +24,12 @@ Inherit from the other contract.
 
 No, this is not implemented on solidity.
 See https://github.com/ethereum/solidity/issues/2467
+
+### Arrays
+
+[What happens if you access the element after the last one?](test/Arrays.test.js)
+It fails with invalid opcode.
+
+[What happens if you increase the length of an array?](test/Arrays.test.js)
+It fills the new elements with zero values, even if there were other values in
+those positions before.
