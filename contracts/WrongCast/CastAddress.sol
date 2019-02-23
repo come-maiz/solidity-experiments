@@ -17,6 +17,9 @@ contract SampleContract {
   constructor(string _sampleVar) public {
     sampleVar = _sampleVar;
   }
+
+  function testFunction() public {
+  }
 }
 
 contract SameABISampleContract {
@@ -24,6 +27,9 @@ contract SameABISampleContract {
 
   constructor(string _sampleVar) public {
     sampleVar = _sampleVar;
+  }
+
+  function testFunction() public {
   }
 }
 
@@ -34,8 +40,22 @@ contract DifferentABIExtraVarSampleContract {
   constructor(string _sampleVar) public {
     sampleVar = _sampleVar;
   }
+
+  function testFunction() public {
+  }
 }
 
 contract DifferentABIMissingVarSampleContract {
   constructor(string _sampleVar) public {}
+
+  function testFunction() public {
+  }
+}
+
+contract DifferentImplementationSampleContract {
+  constructor(string _sampleVar) public {}
+
+  function testFunction() public {
+    selfdestruct(0x0);
+  }
 }

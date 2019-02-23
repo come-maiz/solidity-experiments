@@ -3,6 +3,7 @@ const SampleContract = artifacts.require('SampleContract');
 const SameABISampleContract = artifacts.require('SameABISampleContract');
 const DifferentABIExtraVarSampleContract = artifacts.require('DifferentABIExtraVarSampleContract');
 const DifferentABIMissingVarSampleContract = artifacts.require('DifferentABIMissingVarSampleContract');
+const DifferentImplementationSampleContract = artifacts.require('DifferentImplementationSampleContract');
 
 require('chai')
   .use(require('chai-as-promised'))
@@ -39,9 +40,15 @@ contract('CastAddress', function ([owner]) {
     (await this.castAddress.sampleVar()).should.be.equal('test');
   });
 
-  it('should cast the address of a contract with different ABI - missing state var', async function () {
+  it('should revert a cast of a contract with different ABI - missing state var', async function () {
     differentABISampleContract = await DifferentABIMissingVarSampleContract.new('test');
     await this.castAddress.cast(differentABISampleContract.address)
+      .should.be.rejectedWith('revert');
+  });
+
+  it('should revert a cast of a contract with different implementation', async function () {
+    differentImplementationSampleContract = await DifferentImplementationSampleContract.new('test');
+    await this.castAddress.cast(differentImplementationSampleContract.address)
       .should.be.rejectedWith('revert');
   });
 
