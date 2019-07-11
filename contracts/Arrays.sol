@@ -15,6 +15,10 @@ contract ContractWithArray {
     testArray.push(value);
   }
 
+  function addElement(uint256 value, uint256 index) public {
+    testArray[index] = value;
+  }
+
   function getElement(uint256 index) public view returns(uint256) {
     return testArray[index];
   }

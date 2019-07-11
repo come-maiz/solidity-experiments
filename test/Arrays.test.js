@@ -62,4 +62,11 @@ contract('ContractWithArray', function () {
     (await this.contractWithArray.getElement(0)).should.be.bignumber.equal(0);
   });
 
+  it.only('should fail when trying to add an element to an index out of bounds', async function () {
+    await this.contractWithArray.pushElement(1);
+    (await this.contractWithArray.getLength()).should.be.bignumber.equal(1);
+
+    await this.contractWithArray.addElement(2, 2);
+  });
+
 });

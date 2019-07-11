@@ -2,6 +2,18 @@
 
 My test-driven experiments to learn solidity.
 
+## Requirements
+
+```
+npm install
+```
+
+## Run the tests
+
+```
+npx truffe test
+```
+
 ## Experiments
 
 [What happens when you cast to a contract passing the wrong address?](contracts/WrongCast)
@@ -25,11 +37,14 @@ Inherit from the other contract.
 No, this is not implemented on solidity.
 See https://github.com/ethereum/solidity/issues/2467
 
-### Arrays
+### [Arrays](test/Arrays.test.js)
 
-[What happens if you access the element after the last one?](test/Arrays.test.js)
+What happens if you access the element after the last one?
 It fails with invalid opcode.
 
-[What happens if you increase the length of an array?](test/Arrays.test.js)
+What happens if you increase the length of an array?
 It fills the new elements with zero values, even if there were other values in
 those positions before.
+
+What happens if you try to add an element to an index out of bounds?
+It fails with invalid opcode.
