@@ -1,10 +1,10 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.16;
 
 contract BaseContractWithoutConstructorArguments {
 
   bool public baseContractCalled = false;
 
-  constructor() {
+  constructor() public {
     baseContractCalled = true;
   }
 }
@@ -13,7 +13,7 @@ contract BaseContractWithConstructorArguments {
 
   bool public baseContractCalled = false;
 
-  constructor(string dummy) {
+  constructor(string memory dummy) public {
     baseContractCalled = true;
   }
 }
@@ -23,7 +23,7 @@ contract ContractWithoutConstructorArguments is BaseContractWithoutConstructorAr
 
 contract ContractWithConstructorArgumentsBaseWithout is BaseContractWithoutConstructorArguments {
 
-  constructor(string dummy) {
+  constructor(string memory dummy) public {
   }
 }
 
@@ -31,6 +31,6 @@ contract ContractWithConstructorArgumentsNoOverwriteBaseWith is BaseContractWith
 }
 
 contract ContractWithConstructorArgumentsOverwriteBaseWith is BaseContractWithConstructorArguments {
-  constructor(string dummy) {
+  constructor(string memory dummy) public {
   }
 }

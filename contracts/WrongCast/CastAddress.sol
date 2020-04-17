@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.16;
 
 contract CastAddress {
 
@@ -14,7 +14,7 @@ contract CastAddress {
 contract SampleContract {
   string public sampleVar;
 
-  constructor(string _sampleVar) public {
+  constructor(string memory _sampleVar) public {
     sampleVar = _sampleVar;
   }
 
@@ -25,7 +25,7 @@ contract SampleContract {
 contract SameABISampleContract {
   string public sampleVar;
 
-  constructor(string _sampleVar) public {
+  constructor(string memory _sampleVar) public {
     sampleVar = _sampleVar;
   }
 
@@ -37,7 +37,7 @@ contract DifferentABIExtraVarSampleContract {
   string public sampleVar;
   string public otherVar;
 
-  constructor(string _sampleVar) public {
+  constructor(string memory _sampleVar) public {
     sampleVar = _sampleVar;
   }
 
@@ -46,16 +46,16 @@ contract DifferentABIExtraVarSampleContract {
 }
 
 contract DifferentABIMissingVarSampleContract {
-  constructor(string _sampleVar) public {}
+  constructor(string memory _sampleVar) public {}
 
   function testFunction() public {
   }
 }
 
 contract DifferentImplementationSampleContract {
-  constructor(string _sampleVar) public {}
+  constructor(string memory _sampleVar) public {}
 
   function testFunction() public {
-    selfdestruct(0x0);
+    selfdestruct(address(0x0));
   }
 }

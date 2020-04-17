@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "description": "My test-driven experiments to learn solidity",
   "dependencies": {
-    "chai-bignumber": "^3.0.0"
   },
   "devDependencies": {
+    "bn.js": "^5.1.1",
     "chai": "^4.1.2",
+    "chai-bn": "^0.2.1",
     "chai-as-promised": "^7.1.1",
-    "chai-bignumber": "^3.0.0",
     "truffle": "^5.1.22"
   },
   "scripts": {
